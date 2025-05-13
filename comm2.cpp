@@ -1,46 +1,69 @@
-// 4NIMBelakang_DoubleLinkList
+
 #include <iostream>
 using namespace std;
 
-// membuat struktur untuk object double linkedlist
+// Define a structure for a node in a doubly linked list
 struct Node
 {
-    // deklarasi noMhs dan name untuk menampung data
+    // Declare noMhs and name to store student data
     int noMhs;
     string name;
-    
-    // deklarasi pointer next dan prev untuk penunjukan data sebelum dan sesudah
+
+    // Declare next and prev pointers to point to the next and previous nodes
     Node *next;
     Node *prev;
 };
 
-// deklarasi pointer START dan pemberian nilai
+// Declare a pointer named START and initialize it to NULL
 Node *START = NULL;
-//declartion prosedur oddnode
+
+// Procedure to add a new node to the list
 void addNode()
 {
-    Node* newNode = new Node ();
-    COUT<< "\, ENTER  the rool number of the student :";
-    cin>> newNode->noMhs;
-    cout<<"\n enter the name of the student :";
-    cin>>newNode->name;
-      
-    if (START==Null || newNode->noMhs<= START->noMhs)
+    // Create a new node
+    Node* newNode = new Node();
+
+    // Input student roll number and name
+    cout << "\nEnter the roll number of the student: ";
+    cin >> newNode->noMhs;
+    cout << "\nEnter the name of the student: ";
+    cin >> newNode->name;
+
+    // If list is empty or the new roll number should be at the beginning
+    if (START == NULL || newNode->noMhs <= START->noMhs)
     {
-        //step 2 input the new node at the beggining 
-        // kondid=si jika staar tidak kosong dan noMhs node baru sama dengan 
-        if (START!=Null || newNode->noMhs<= START->noMhs)
+        // If the list is not empty and the roll number already exists
+        if (START != NULL && newNode->noMhs == START->noMhs)
         {
-            cout<<"\033[31mDuplicate rool numbers not allowed\033[0m"<<endl;
+            cout << "\033[31mDuplicate roll numbers are not allowed\033[0m" << endl;
             return;
         }
-        
+
+        // Insert the new node at the beginning
         newNode->next = START;
 
-        if (START != Null)
+        if (START != NULL)
         {
-            START->prev= newNode; //step 4 make the first node point to the 
-
+            START->prev = newNode;
         }
-    }  
+
+        START = newNode;
+        return;
+    }
+
+
+    else 
+    {
+        //inser the new code in the middle or at the end 
+        Node *current = START;//start from the first node 
+        Node *previuos = NULL;// privious node is null
+        //looping 
+        while (current !=NULL && current->noMhs<newNode->noMhs)
+        {
+            /* code */
+        }
+        
+
+
+    }
 }
