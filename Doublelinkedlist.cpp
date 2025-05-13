@@ -46,4 +46,36 @@ void addNode()
 
         START = newNode;
         return;
+    }else
+    {
+        // Insert the new node in the middle or at the end
+        Node *current = START;   // Start from the first node
+        Node *previuos = NULL;   // Previous node is NULL
+
+        // Loop through the list to find the correct position
+        while (current != NULL && current->noMhs < newNode->noMhs)
+        {
+            previuos = current;      // Move previous to current node
+            current = current->next; // Move current to the next node
+        }
+
+        newNode->next = current;      // Set the next pointer of the new node
+        newNode->prev = previuos;     // Set the previous pointer of the new node
+
+        // If current is not NULL, update its previous pointer
+        if (current != NULL)
+        {
+            current->prev = newNode;
+        }
+
+        if (previuos != NULL)
+        {
+            previuos->next = newNode; // Link previous to new node
+        }
+        else
+        {
+            // If previous is still null, newNode is the first node
+            START = newNode;
+        }
     }
+}
