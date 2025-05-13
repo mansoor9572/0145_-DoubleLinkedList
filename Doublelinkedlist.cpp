@@ -18,14 +18,14 @@ Node *START = NULL;
 void addNode()
 {
     // Create a new node
-    Node* newNode = new Node();
+    Node *newNode = new Node();
 
     // Input student roll number and name
     cout << "\nEnter the roll number of the student: ";
     cin >> newNode->noMhs;
     cout << "\nEnter the name of the student: ";
     cin >> newNode->name;
-     // If list is empty or the new roll number should be at the beginning
+    // If list is empty or the new roll number should be at the beginning
     if (START == NULL || newNode->noMhs <= START->noMhs)
     {
         // If the list is not empty and the roll number already exists
@@ -47,16 +47,37 @@ void addNode()
         return;
     }
 
-      else 
+    else
     {
-        // Insert the new node in the middle or at the end 
-        Node *current = START;      // Start from the first node 
-        Node *previuos = NULL;      // Previous node is NULL
+        // Insert the new node in the middle or at the end
+        Node *current = START; // Start from the first node
+        Node *previuos = NULL; // Previous node is NULL
 
         // Looping through the list to find the correct position
-        while (current !=NULL && current->noMhs<newNode->noMhs)
+        while (current != NULL && current->noMhs < newNode->noMhs)
         {
-            
+            previuos = current;      // Move previous to current node
+            current = current->next; // Move current to the next node
         }
-}
 
+        newNode->next = current;  // Set the next pointer of the new node
+        newNode->prev = previuos; // Set the previous pointer of the new node
+
+        // Condition if current is not NULL
+        if (current != NULL)
+        {
+            current->prev = newNode; // Set current's previous pointer to new node
+        }
+        if (previuos != NULL)
+        {
+            previuos->next =newNode;
+
+        }
+        else 
+        {
+            //if privious is still null , it means newNode is now the first node 
+            START = newNode;
+        }
+        
+    }
+}
