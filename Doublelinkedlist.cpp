@@ -204,3 +204,46 @@ void searchData() {
         cout << "Name: " << curr->name << endl;
     }
 }
+// Main function for menu-driven program
+int main() {
+    // Loop continues until user exits
+    while (true) {
+        try {
+            cout << "\nMenu\n";
+            cout << "1. Add a record to the list\n";
+            cout << "2. Delete a record from the list\n";
+            cout << "3. View all records in ascending order\n";
+            cout << "4. View all records in descending order\n";
+            cout << "5. Search for a record in the list\n";
+            cout << "6. Exit\n";
+            cout << "Enter your choice (1-6): ";
+
+            char ch;
+            cin >> ch;
+
+            switch (ch) {
+                case '1':
+                    addNode();
+                    break;
+                case '2':
+                    deleteNode();
+                    break;
+                case '3':
+                    traverse();
+                    break;
+                case '4':
+                    reverseTraverse();
+                    break;
+                case '5':
+                    searchData();
+                    break;
+                case '6':
+                    return 0;
+                default:
+                    cout << "\nInvalid option. Please choose between 1 and 6.\n";
+            }
+        } catch (exception& e) {
+            cout << "An error occurred. Please check the values you entered.\n";
+        }
+    }
+}
