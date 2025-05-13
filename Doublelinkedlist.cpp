@@ -1,18 +1,14 @@
-// 4NIMBelakang_DoubleLinkList
 #include <iostream>
 using namespace std;
 
-// membuat struktur untuk object double linkedlist
+// Define a structure for a node in a doubly linked list
 struct Node
 {
-    // deklarasi noMhs dan name untuk menampung data
+    // Declare noMhs and name to store student data
     int noMhs;
     string name;
-    
-    // deklarasi pointer next dan prev untuk penunjukan data sebelum dan sesudah
+
+    // Declare next and prev pointers to point to the next and previous nodes
     Node *next;
     Node *prev;
 };
-
-// deklarasi pointer START dan pemberian nilai
-Node *START = NULL;
