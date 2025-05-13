@@ -47,6 +47,16 @@ void addNode()
         return;
     }
 
-    // You can continue the rest of the insertion logic here...
+      else 
+    {
+        // Insert the new node in the middle or at the end 
+        Node *current = START;      // Start from the first node 
+        Node *previuos = NULL;      // Previous node is NULL
+
+        // Looping through the list to find the correct position
+        while (current !=NULL && current->noMhs<newNode->noMhs)
+        {
+            /* code */
+        }
 }
 
