@@ -162,3 +162,23 @@ void traverse() {
         current = current->next; // Move forward
     }
 }
+// Procedure to traverse and display the list in descending order
+void reverseTraverse() {
+    if (listEmpty()) {
+        cout << "\nList is empty\n";
+        return;
+    }
+
+    cout << "\nRecords in descending order of roll number:\n";
+
+    // Move to the last node
+    Node* current = START;
+    while (current->next != NULL)
+        current = current->next;
+
+    // Traverse backward
+    while (current != NULL) {
+        cout << current->noMhs << " " << current->name << endl;
+        current = current->prev;
+    }
+}
