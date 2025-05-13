@@ -1,11 +1,18 @@
-#include<iostream>
+// 4NIMBelakang_DoubleLinkList
+#include <iostream>
 using namespace std;
-//membuat structur untuk object double linked list 
-struct  Node 
+
+// membuat struktur untuk object double linkedlist
+struct Node
 {
-   // delacrasi noMhs dan name untuk menapung data 
-   int noMhs;
-   string name ;
-   
+    // deklarasi noMhs dan name untuk menampung data
+    int noMhs;
+    string name;
+    
+    // deklarasi pointer next dan prev untuk penunjukan data sebelum dan sesudah
+    Node *next;
+    Node *prev;
 };
 
+// deklarasi pointer START dan pemberian nilai
+Node *START = NULL;
