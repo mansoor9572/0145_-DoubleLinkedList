@@ -56,7 +56,7 @@ void addNode()
         // Looping through the list to find the correct position
         while (current !=NULL && current->noMhs<newNode->noMhs)
         {
-            /* code */
+            
         }
 }
 
