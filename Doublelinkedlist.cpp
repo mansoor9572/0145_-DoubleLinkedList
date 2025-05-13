@@ -127,3 +127,23 @@ void deleteNode() {
         cout << "\033[31mThe record with roll number " << rollNo << " not found\033[0m" << endl;
         return;
     }
+
+    // Node to be deleted is the first node
+    if (current == START) {
+        START = START->next;
+
+        if (START != NULL)
+            START->prev = NULL;
+    } else {
+        // Node to be deleted is not the first node
+        previous->next = current->next;
+
+        // If there is a successor, update its prev pointer
+        if (current->next != NULL)
+            current->next->prev = previous;
+    }
+
+    // Release the memory of the node to be deleted
+    delete current;
+    cout << "\033[32mRecord with roll number " << rollNo << " deleted\033[0m" << endl;
+}
