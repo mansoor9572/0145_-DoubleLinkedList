@@ -12,3 +12,5 @@ struct Node
     Node *next;
     Node *prev;
 };
+// Declare a pointer named START and initialize it to NULL
+Node *START = NULL;
