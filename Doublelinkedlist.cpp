@@ -182,3 +182,25 @@ void reverseTraverse() {
         current = current->prev;
     }
 }
+// Procedure to search and display student data by roll number
+void searchData() {
+    if (listEmpty()) {
+        cout << "\nList is empty\n";
+        return;
+    }
+
+    int num;
+    Node *prev, *curr;
+    prev = curr = NULL;
+
+    cout << "\nEnter the roll number of the student whose record you want to search: ";
+    cin >> num;
+
+    if (!search(num, &prev, &curr)) {
+        cout << "\nRecord not found\n";
+    } else {
+        cout << "\nRecord found:\n";
+        cout << "Roll number: " << curr->noMhs << endl;
+        cout << "Name: " << curr->name << endl;
+    }
+}
