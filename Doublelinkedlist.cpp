@@ -25,4 +25,28 @@ void addNode()
     cin >> newNode->noMhs;
     cout << "\nEnter the name of the student: ";
     cin >> newNode->name;
+     // If list is empty or the new roll number should be at the beginning
+    if (START == NULL || newNode->noMhs <= START->noMhs)
+    {
+        // If the list is not empty and the roll number already exists
+        if (START != NULL && newNode->noMhs == START->noMhs)
+        {
+            cout << "\033[31mDuplicate roll numbers are not allowed\033[0m" << endl;
+            return;
+        }
+
+        // Insert the new node at the beginning
+        newNode->next = START;
+
+        if (START != NULL)
+        {
+            START->prev = newNode;
+        }
+
+        START = newNode;
+        return;
+    }
+
+    // You can continue the rest of the insertion logic here...
+}
 
