@@ -32,3 +32,35 @@ bool search(int rollNo, Node** previous, Node** current) {
 
     return (*current != NULL);       // Return true if roll number is found
 }
+// Procedure to add a new node to the list
+void addNode() {
+    // Create a new node
+    Node* newNode = new Node();
+
+    // Input student roll number and name
+    cout << "\nEnter the roll number of the student: ";
+    cin >> newNode->noMhs;
+
+    // Validate roll number input
+    if (cin.fail()) {
+        cin.clear(); // Clear error flags
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+        cout << "Invalid roll number input.\n";
+        delete newNode;
+        return;
+    }
+
+    cout << "Enter the name of the student: ";
+    cin >> newNode->name;
+
+    newNode->next = NULL;
+    newNode->prev = NULL;
+
+    // If list is empty or the new roll number should be at the beginning
+    if (START == NULL || newNode->noMhs <= START->noMhs) {
+        // If the list is not empty and the roll number already exists
+        if (START != NULL && newNode->noMhs == START->noMhs) {
+            cout << "\033[31mDuplicate roll numbers are not allowed\033[0m" << endl;
+            delete newNode;
+            return;
+        }
