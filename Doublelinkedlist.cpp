@@ -12,3 +12,17 @@ struct Node
     Node *next;
     Node *prev;
 };
+// Declare a pointer named START and initialize it to NULL
+Node *START = NULL;
+// Procedure to add a new node to the list
+void addNode()
+{
+    // Create a new node
+    Node* newNode = new Node();
+
+    // Input student roll number and name
+    cout << "\nEnter the roll number of the student: ";
+    cin >> newNode->noMhs;
+    cout << "\nEnter the name of the student: ";
+    cin >> newNode->name;
+
