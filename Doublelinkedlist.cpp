@@ -101,3 +101,29 @@ void addNode() {
             previous->next = newNode;
     }
 }
+// Procedure to delete a node by roll number
+void deleteNode() {
+    // If the list is empty, display message
+    if (listEmpty()) {
+        cout << "List is empty.\n";
+        return;
+    }
+
+    int rollNo;
+    cout << "\nEnter the roll number of the student whose record is to be deleted: ";
+    cin >> rollNo;
+
+    Node *current = START;
+    Node *previous = NULL;
+
+    // Locate the node to be deleted
+    while (current != NULL && current->noMhs != rollNo) {
+        previous = current;
+        current = current->next;
+    }
+
+    // If node with given roll number is not found
+    if (current == NULL) {
+        cout << "\033[31mThe record with roll number " << rollNo << " not found\033[0m" << endl;
+        return;
+    }
