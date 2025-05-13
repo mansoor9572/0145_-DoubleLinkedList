@@ -147,3 +147,18 @@ void deleteNode() {
     delete current;
     cout << "\033[32mRecord with roll number " << rollNo << " deleted\033[0m" << endl;
 }
+// Procedure to traverse and display the list in ascending order
+void traverse() {
+    if (listEmpty()) {
+        cout << "\nList is empty\n";
+        return;
+    }
+
+    cout << "\nRecords in ascending order of roll number:\n";
+    Node* current = START;
+
+    while (current != NULL) {
+        cout << current->noMhs << " " << current->name << endl;
+        current = current->next; // Move forward
+    }
+}
