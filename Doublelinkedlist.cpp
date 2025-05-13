@@ -64,3 +64,39 @@ void addNode() {
             delete newNode;
             return;
         }
+
+        // Insert the new node at the beginning
+        newNode->next = START;
+
+        if (START != NULL)
+            START->prev = newNode;
+
+        START = newNode;
+    } else {
+        // Insert the new node in the middle or at the end
+        Node* current = START;   // Start from the first node
+        Node* previous = NULL;   // Previous node is NULL
+
+        // Loop through the list to find the correct position
+        while (current != NULL && current->noMhs < newNode->noMhs) {
+            previous = current;      // Move previous to current node
+            current = current->next; // Move current to the next node
+        }
+
+        // Check for duplicate roll number
+        if (current != NULL && current->noMhs == newNode->noMhs) {
+            cout << "\033[31mDuplicate roll numbers are not allowed\033[0m" << endl;
+            delete newNode;
+            return;
+        }
+
+        // Insert the node between previous and current
+        newNode->next = current;
+        newNode->prev = previous;
+
+        if (current != NULL)
+            current->prev = newNode;
+
+        if (previous != NULL)
+            previous->next = newNode;
+    }
