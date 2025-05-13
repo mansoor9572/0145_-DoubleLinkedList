@@ -100,3 +100,4 @@ void addNode() {
         if (previous != NULL)
             previous->next = newNode;
     }
+}
